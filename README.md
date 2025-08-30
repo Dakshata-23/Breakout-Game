@@ -2,6 +2,17 @@
 
 A modern, visually appealing Breakout game built with React and TypeScript.
 
+## Screenshots
+
+![Game Start](public/screenshots/gamestart.png)
+*Start screen: Ready to play!*
+
+![Gameplay](public/screenshots/gameplay.png)
+*Gameplay: Breaking bricks and scoring points!*
+
+![Game Over](public/screenshots/gameover.png)
+*Game Over: See your high score and restart!*
+
 ## Features
 - Classic Breakout gameplay with paddle and ball
 - Multiple levels with increasing difficulty
