@@ -1,13 +1,135 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Orbitron', monospace;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .game-container {
+    @apply min-h-screen bg-gradient-to-br from-dark-bg via-dark-blue to-dark-purple text-neon-cyan flex justify-center items-center overflow-hidden;
+  }
+  
+  .game-header {
+    @apply flex justify-between items-center w-full max-w-4xl p-5 bg-neon-cyan/10 border-2 border-neon-cyan rounded-2xl shadow-[0_0_20px_rgba(0,255,255,0.3)] backdrop-blur-md;
+  }
+  
+  .game-title {
+    @apply text-4xl font-black animate-glow;
+  }
+  
+  .game-stats {
+    @apply flex gap-8;
+  }
+  
+  .stat {
+    @apply flex flex-col items-center gap-1;
+  }
+  
+  .stat-label {
+    @apply text-sm text-gray-400 uppercase tracking-wider;
+  }
+  
+  .stat-value {
+    @apply text-2xl font-bold text-neon-pink;
+  }
+  
+  .game-area {
+    @apply relative border-3 border-neon-cyan rounded-xl shadow-[0_0_30px_rgba(0,255,255,0.4)] overflow-hidden;
+  }
+  
+  .game-canvas {
+    @apply block bg-gradient-to-b from-dark-bg to-dark-blue rounded-lg;
+  }
+  
+  .game-overlay {
+    @apply absolute inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center;
+  }
+  
+  .overlay-content {
+    @apply text-center text-neon-cyan p-10 bg-neon-cyan/10 border-2 border-neon-cyan rounded-2xl shadow-[0_0_30px_rgba(0,255,255,0.3)];
+  }
+  
+  .overlay-title {
+    @apply text-5xl font-black mb-5 animate-glow;
+  }
+  
+  .overlay-message {
+    @apply text-xl mb-4 text-white;
+  }
+  
+  .controls-info {
+    @apply my-8 p-5 bg-white/10 rounded-xl border border-white/20;
+  }
+  
+  .controls-info p {
+    @apply my-2 text-base text-gray-300;
+  }
+  
+  .high-score {
+    @apply mt-5 p-4 bg-yellow-500/10 border border-yellow-500 rounded-xl;
+  }
+  
+  .high-score p {
+    @apply text-yellow-400 font-bold;
+  }
+  
+  .power-ups-info {
+    @apply w-full max-w-4xl p-5 bg-white/5 border border-white/10 rounded-xl;
+  }
+  
+  .power-ups-title {
+    @apply text-center mb-4 text-neon-pink;
+  }
+  
+  .power-up-list {
+    @apply flex justify-around gap-5;
+  }
+  
+  .power-up-item {
+    @apply flex items-center gap-2 text-sm text-gray-300;
+  }
+  
+  .power-up-icon {
+    @apply text-xl;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-neon-cyan/20 border border-neon-cyan text-neon-cyan rounded-lg hover:bg-neon-cyan/30 transition-all duration-300 font-bold;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-neon-pink/20 border border-neon-pink text-neon-pink rounded-lg hover:bg-neon-pink/30 transition-all duration-300 font-bold;
+  }
 }
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  }
+  
+  .border-glow {
+    box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  }
+}
+
+/* Custom CSS animations */
+@keyframes glow {
+  0% { 
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  }
+  100% { 
+    text-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff, 0 0 35px #00ffff;
+    box-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff, 0 0 35px #00ffff;
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
